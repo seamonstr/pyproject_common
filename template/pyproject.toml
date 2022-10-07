@@ -1,0 +1,44 @@
+[tool.flake8]
+max-line-length = "130"
+# E203, E501 are incompatible with black
+extend-ignore = "E203, E501"
+exclude = """
+    .git,
+    __pycache__,
+    config,
+    stacks,
+    jmeter,
+    .venv
+"""
+
+[tool.black]
+line-length = 88
+include = '\.pyi?$'
+exclude = '''
+/(
+    \.git
+  | \.mypy_cache
+  | \.tox
+  | \.venv
+  | terraform
+  | \.terraform
+)/
+'''
+
+[tool.mypy]
+exclude = [
+    '.venv'
+]
+
+[tool.poetry]
+name = "match-card-game"
+version = "0.1.0"
+description = "Practise interview coding exercise"
+authors = ["Simon Woodward <simon@redcabbage.org>"]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+
+[tool.poetry.dev-dependencies]
+pyproject-flake8 = "^5.0.4"
+black = "^22.10.0"
