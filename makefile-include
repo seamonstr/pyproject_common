@@ -7,5 +7,5 @@ setup:
 
 lint:
 	black .
-	flake8 .
+	pflake8 .
 	mypy .
