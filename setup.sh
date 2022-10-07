@@ -8,12 +8,9 @@ cp $SUBMODULE/pre-commit .git/hooks/
 chmod ugo+x .git/hooks/pre-commit
 
 # Copy other template files & commit to github	
-for i in $(ls $SUBMODULE/template); do
-	echo Copying $i
-	if cp -n $SUBMODULE/template/$i . ; then
-		git add $i
-	fi
-done
+cp -R $SUBMODULE/template/* .
+git add .
+git commit -m "Adding template files"
 
 # Set up python
 [ -d ".venv" ] || {
@@ -23,11 +20,3 @@ done
 	pip install poetry
 	poetry install
 }
-
-# Finally, docker setup
-[ -d Docker ] || {
-	cp -R $SUBMODULE/docker .
-	git add docker
-}
-
-git commit -m "Adding template files"
