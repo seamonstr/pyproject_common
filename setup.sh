@@ -5,7 +5,7 @@ SUBMODULE=pyproject_common
 
 # Copy precommit hooks
 cp $SUBMODULE/pre-commit .git/hooks/
-chmod o+x .git/hooks/pre-commit
+chmod ugo+x .git/hooks/pre-commit
 
 # Copy other template files & commit to github	
 for i in $(ls $SUBMODULE/template); do
