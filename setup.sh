@@ -3,7 +3,7 @@ set -e
 # Copy precommit hooks
 cp pyproject_common/pre-commit .git/hooks/
 # Set up python
-[-d ".venv"] || {
+[ -d ".venv" ] || {
 	 python -m env .venv
 	. .venv/bin/activate
 	pip install --upgrade pip
@@ -19,7 +19,7 @@ for i in ls $SUBMODULE/template/*; do
 done
 
 # Finally, docker setup
-[-d Docker] || {
+[ -d Docker ] || {
 	cp -R $SUBMODULE/Docker .
 	git add Docker
 
