@@ -4,7 +4,7 @@ SUBMODULE=pyproject_common
 [ -d $SUBMODULE ]
 
 # Copy other template files & commit to github	
-cp -R $SUBMODULE/template/* .
+cp -R $SUBMODULE/template/. .
 git add .
 git commit -m "Adding template files"
 
