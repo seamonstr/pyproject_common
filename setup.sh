@@ -26,8 +26,8 @@ done
 
 # Finally, docker setup
 [ -d Docker ] || {
-	cp -R $SUBMODULE/Docker .
-	git add Docker
+	cp -R $SUBMODULE/docker .
+	git add docker
 }
 
 git commit -m "Adding template files"
