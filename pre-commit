@@ -1,0 +1,5 @@
+#!/bin/sh
+
+if ! make lint; then
+  exit 2
+fi

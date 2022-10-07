@@ -30,3 +30,8 @@ setup:
 	}
 
 	git commit -m "Adding template files"
+
+lint:
+	black .
+	flake8 .
+	mypy .
