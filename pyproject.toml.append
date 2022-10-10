@@ -1,0 +1,34 @@
+
+# From here on appended by pyproject_common
+
+[tool.flake8]
+max-line-length = "130"
+# E203, E501 are incompatible with black
+extend-ignore = "E203, E501"
+exclude = """
+    .git,
+    __pycache__,
+    config,
+    stacks,
+    jmeter,
+    .venv
+"""
+
+[tool.black]
+line-length = 88
+include = '\.pyi?$'
+exclude = '''
+/(
+    \.git
+  | \.mypy_cache
+  | \.tox
+  | \.venv
+  | terraform
+  | \.terraform
+)/
+'''
+
+[tool.mypy]
+exclude = [
+    '.venv'
+]

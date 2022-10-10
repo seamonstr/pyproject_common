@@ -18,8 +18,13 @@ poetry add mypy
 poetry add pytest
 poetry install
 
-# Copy other template files & commit to github - note -i for idempotency safety
+# Copy other template files  - note -i for idempotency safety
 cp -Ri $SUBMODULE/template/. .
+
+# Append pyproject.toml extras
+cat $SUBMODULE/pyproject.toml.append >> pyproject.toml
+
+# commit to github
 if git add .; then
   git commit -m "Adding template files"
 else
