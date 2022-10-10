@@ -15,6 +15,7 @@ pip install poetry
 poetry add black
 poetry add pyproject-flake8
 poetry add mypy
+poetry add pytest
 poetry install
 
 # Copy other template files & commit to github - note -i for idempotency safety
