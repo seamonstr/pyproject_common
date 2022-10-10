@@ -3,18 +3,35 @@
 Framework for creating little python projects for things like interview take-home exercises.  Provides for:
 * A setup section to set up a new project.
 * Pre-commit hooks that do `black`, `flake8` and `mypy` before allowing commit.
-* A basic pyproject.toml file if one doesn't exist.
+* A basic Poetry project
 * A Debian linux container for testing the project:
 	* Build a debian linux container image with the required python files
 	* Run the container on the local workstation interactively
 	* Run the container non-interactively (in the case of a server)
+* Git initialisation and some initial commits
 
-To get started with a project "my-cat-project", copy the following into a shell file and run it:
+To get started with a project, copy the following into a shell file and run it with your desired project name as an argument (`sh project.sh mynewprojectwithcats`). Note it's not posix compliant, so some older versions of sh may not work.
+
 ```bash
+if [[ $# -ne 1 ]]; then
+  echo "Expected one argument"
+  exit 1
+fi
+
+PROJECT_NAME=$1
+if [[ -d $PROJECT_NAME ]]; then
+  echo "Directory $PROJECT_NAME already exists."
+fi
+
+if  [[ ! ( -x "$(command -v poetry)" && -x "$(command -v python)" ) ]]; then
+  echo "Python or poetry not installed"
+fi
+
 set -e
 
-mkdir my-cat-project
-cd my-cat-project
+poetry new --src $PROJECT_NAME
+cd $PROJECT_NAME
+
 git init
 git submodule add https://github.com/seamonstr/pyproject_common
 git commit -m "Adding submodule"
@@ -23,4 +40,5 @@ cat <<- EOF > Makefile
 EOF
 git add Makefile && git commit -m "Adding makefile"
 make setup
+
 ```
