@@ -3,7 +3,7 @@
 SUBMODULE = pyproject_common
 
 setup:
-	sh $(SUBMODULE)/setup.sh
+	$(SUBMODULE)/setup.sh
 
 lint:
 	black .
