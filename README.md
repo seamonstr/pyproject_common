@@ -10,7 +10,7 @@ Framework for creating little python projects for things like interview take-hom
 	* Run the container non-interactively (in the case of a server)
 * Git initialisation and some initial commits
 
-To get started with a project, copy the following into a shell file and run it with your desired project name as an argument (`sh project.sh mynewprojectwithcats`). Note it's not posix compliant, so some older versions of sh may not work.
+To get started with a project, copy the following into a shell file and run it with your desired project name as an argument (`bash project.sh mynewprojectwithcats`). Note it's not posix compliant, so Bash in posix-mode (ie. `sh`) may not work.
 
 ```bash
 if [[ $# -ne 1 ]]; then
