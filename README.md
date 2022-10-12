@@ -13,6 +13,8 @@ Framework for creating little python projects for things like interview take-hom
 To get started with a project, copy the following into a shell file and run it with your desired project name as an argument (`bash project.sh mynewprojectwithcats`). Note it's not posix compliant, so Bash in posix-mode (ie. `sh`) may not work.
 
 ```bash
+#! /bin/bash
+
 if [[ $# -ne 1 ]]; then
   echo "Expected one argument"
   exit 1
