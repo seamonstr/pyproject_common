@@ -6,6 +6,6 @@ setup:
 	$(SUBMODULE)/setup.sh
 
 lint:
-	black .
-	pflake8 .
-	mypy .
+	poetry run black .
+	poetry run pflake8 .
+	poetry run mypy .
